@@ -6,12 +6,10 @@ class RepositoriesController < ApplicationController
 
   def github_search
     begin
-    @resp = Faraday.get 'https://api.foursquare.com/v2/venues/search' do |req|
+    @resp = Faraday.get 'https://api.github.com/search/repositories' do |req|
         req.params['client_id'] = 'KCPJYKE3TISAHGFWPZF0ISQ4HLJJWQ4WKA3DWHPSB5WWXJQ1'
         req.params['client_secret'] = 'TJ10GRCRH2LXDDBT2AZRRZ1FBVYKLHBZTTE3Z31XX3JLIZVT'
-        req.params['v'] = '20160201'
-        req.params['near'] = params[:zipcode]
-        req.params['query'] = 'coffee shop'
+        req.params['q'] = 'tetris'
       end
       body = JSON.parse(@resp.body)
       if @resp.success?
