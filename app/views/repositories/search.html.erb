@@ -7,15 +7,17 @@
 <div>
   <% if @error %>
     <p><%= @error %></p>
-  <% elsif @venues %>
+  <% elsif @items %>
     <ul>
-    <% @venues.each do |venue| %>
+    <% @items.each do |item| %>
       <li>
-        <%= venue["name"] %><br>
-        <%= venue["location"]["address"] %><br>
-        Checkins: <%= venue["stats"]["checkinsCount"] %>
+        <%= item["url"] %><br>
+        Name: <%= item["name"] %><br>
+        Description: <%= item["cescription"] %>
       </li>
     <% end %>
     </ul>
   <% end %>
 </div>
+
+
